@@ -123,7 +123,7 @@ A priori, salió todo ok, generó el plan a la primera sin preguntarme nada.
 
 **Modelo:** Opus 5.5 Medium 
 **Herramienta:** Claude Code en VSCode
-**Repo:** flowsync-sin-harness
+**Repo:** flowsync-ai4devs-202610-seniors-I
 
 ```
 
@@ -155,7 +155,7 @@ Claude me generó el archivo skill.md con el skill de /commit
 
 **Modelo:** Opus 5.5 Medium 
 **Herramienta:** Claude Code en VSCode
-**Repo:** flowsync-sin-harness
+**Repo:** flowsync-ai4devs-202610-seniors-I
 
 ```
 
@@ -176,3 +176,42 @@ Cuando termines, enséñame el contenido del archivo y no hagas nada más.
 ```
 **Qué salió:**
 Claude me generó el archivo adversarial-reviewer.md dentro de la carpeta .claude/agents con el agente.
+
+
+## Prompt 9
+
+**Modelo:** Opus 5.5 Medium 
+**Herramienta:** Claude Code en VSCode
+**Repo:** flowsync-ai4devs-202610-seniors-I
+
+```
+Usa el subagente adversarial-reviewer para revisar el PR #21 del repo LIDR-academy-temp/flowsync-ai4devs-202610-seniors-I
+```
+**Qué salió:**
+Me generó el texto del review pero al final me ofrece aplicar los cambios, le dije que no. El revisor no debe aplicar cambios pero el agente principal si me ofrece aplicarlos.
+
+
+## Prompt 10
+
+**Modelo:** Opus 5.5 Medium 
+**Herramienta:** Claude Code en VSCode
+**Repo:** flowsync-ai4devs-202610-seniors-I
+
+```
+
+Quiero un hook que formatee el frontend automáticamente.
+
+1. Instala Prettier como dependencia de desarrollo en frontend/ (no en la raíz ni en backend/) y crea su archivo de configuración en frontend/.
+2. Crea un hook PostToolUse a nivel de proyecto en .claude/settings.json que se dispare después de Edit, Write o MultiEdit.
+3. El hook debe formatear con Prettier solo el archivo editado, y solo si está dentro de frontend/src/ (archivos .ts, .tsx, .css). Si el archivo está en otra carpeta, no debe hacer nada.
+
+Restricciones:
+- Estoy en Windows: el hook tiene que funcionar ahí. Usa un script de Node en .claude/hooks/ en vez de comandos de Linux como jq o grep.
+- Si Prettier falla, el hook no debe bloquear al agente ni romper la edición.
+- No formatees ahora los archivos existentes ni toques el backend.
+
+Cuando termines, enséñame .claude/settings.json y el script del hook, y no hagas nada más.
+
+```
+**Qué salió:**
+Generó el hook y el archivo settings.json
