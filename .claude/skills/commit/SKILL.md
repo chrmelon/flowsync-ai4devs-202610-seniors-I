@@ -37,3 +37,4 @@ Crea un commit a partir **solo** de los cambios que el usuario ya ha preparado.
 - **No** ejecutes `git push`.
 - No uses `-a` ni `--all` en `git commit`: añadirían al commit cambios no preparados.
 - No uses `--amend`, `--no-verify` ni opciones que salten hooks.
+- No añadas la línea Co-Authored-By
