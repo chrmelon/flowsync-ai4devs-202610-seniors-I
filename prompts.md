@@ -117,3 +117,33 @@ del proyecto. Solo cuando apruebe el plan, mueve el ticket a «En curso».
 ```
 **Qué salió:**
 A priori, salió todo ok, generó el plan a la primera sin preguntarme nada.
+
+
+## Prompt 7
+
+**Modelo:** Opus 5.5 Medium 
+**Herramienta:** Claude Code en VSCode
+**Repo:** flowsync-sin-harness
+
+```
+
+Crea una skill de proyecto llamada commit en .claude/skills/commit/SKILL.md (dentro de este repo, no a nivel de usuario).
+
+Al invocar /commit debe:
+1. Mirar solo los cambios ya preparados con `git diff --staged`.
+2. Proponer un mensaje de commit convencional con el formato `tipo(scope): descripción`, en español.
+   - Tipos permitidos: feat, fix, docs, refactor, test, chore, style.
+   - El scope es la parte afectada del proyecto (por ejemplo frontend, backend, harness, docs).
+   - La descripción en minúscula, en imperativo y sin punto final.
+3. Hacer el commit con ese mensaje.
+
+Restricciones:
+- Si no hay cambios preparados, decirlo y terminar.
+- No ejecutar `git add` por su cuenta: solo se commitea lo que yo haya preparado.
+- No hacer `git push`.
+
+Cuando termines, enséñame el contenido del SKILL.md y no hagas nada más.
+
+```
+**Qué salió:**
+Claude me generó el archivo skill.md con el skill de /commit
