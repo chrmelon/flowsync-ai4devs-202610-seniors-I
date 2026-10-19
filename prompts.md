@@ -237,3 +237,44 @@ No cambies nada más del archivo. Cuando termines, enséñame la sección añadi
 ```
 **Qué salió:**
 Se modificó el archivo Claude.md con las nuevas reglas de proceso.
+
+## Prompt 12
+
+**Modelo:** — (no aplica: comando lanzado a mano)
+**Herramienta:** Windows PowerShell (ventana aparte, en C:\Users\chrme)
+**Repo:** ninguno (me equivoqué de carpeta)
+
+```
+git config core.symlinks true
+```
+
+**Qué salió:**
+Falló con `fatal: not in a git directory`, porque lo ejecuté en mi carpeta de usuario y no dentro del repo. Antes había activado el Modo de desarrollador de Windows (Configuración → Sistema → Avanzado) para poder crear enlaces simbólicos.
+
+## Prompt 13
+
+**Modelo:** — (no aplica: comandos lanzados a mano)
+**Herramienta:** PowerShell (terminal de VS Code)
+**Repo:** flowsync-ai4devs-202610-seniors-I
+
+```
+git config core.symlinks true
+Remove-Item AGENTS.md
+New-Item -ItemType SymbolicLink -Path AGENTS.md -Target CLAUDE.md
+```
+
+**Qué salió:**
+`git config` funcionó dentro del repo y `Remove-Item` borró la copia antigua de AGENTS.md (estaba adaptada para Codex y desactualizada). Pero `New-Item` falló con `Se necesitan privilegios de administrador para esta operación` (NewItemSymbolicLinkElevationRequired): Windows PowerShell 5.1 pide ser administrador para crear enlaces simbólicos aunque el Modo de desarrollador esté activo.
+
+## Prompt 14
+
+**Modelo:** — (no aplica: comando lanzado a mano)
+**Herramienta:** PowerShell (terminal de VS Code)
+**Repo:** flowsync-ai4devs-202610-seniors-I
+
+```
+cmd /c mklink AGENTS.md CLAUDE.md
+```
+
+**Qué salió:**
+Funcionó: `vínculo simbólico creado para AGENTS.md <<===>> CLAUDE.md`. `mklink` sí respeta el Modo de desarrollador. Ahora AGENTS.md es un enlace a CLAUDE.md (equivale al `ln -s CLAUDE.md AGENTS.md` del enunciado), así que las otras herramientas leen las mismas instrucciones, incluidas las Process rules de la pieza 7.
