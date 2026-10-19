@@ -147,3 +147,32 @@ Cuando termines, enséñame el contenido del SKILL.md y no hagas nada más.
 ```
 **Qué salió:**
 Claude me generó el archivo skill.md con el skill de /commit
+
+
+
+
+## Prompt 8
+
+**Modelo:** Opus 5.5 Medium 
+**Herramienta:** Claude Code en VSCode
+**Repo:** flowsync-sin-harness
+
+```
+
+Crea un subagente de proyecto llamado adversarial-reviewer en .claude/agents/adversarial-reviewer.md (dentro de este repo).
+
+Su trabajo es revisar un pull request intentando romperlo, no aprobarlo:
+1. Leer el diff del PR con `gh pr diff <número>` y la descripción con `gh pr view <número>`.
+2. Leer el código relacionado que haga falta para entender los cambios, incluido CLAUDE.md.
+3. Buscar activamente problemas: errores de lógica, casos límite no cubiertos, incumplimientos del contrato del backend (validadores, errores 400/401/422, forma { data }), incumplimientos de las convenciones de CLAUDE.md, falta de manejo de errores y riesgos de seguridad.
+4. Devolver un informe con cada hallazgo: archivo y línea, qué falla, por qué importa y cómo reproducirlo. Ordenados de más a menos grave.
+
+Restricciones:
+- Solo lectura: no puede editar ni crear archivos, ni hacer commits, ni comentar en GitHub.
+- Si no encuentra problemas, que lo diga explicando qué revisó, en vez de aprobar sin más.
+
+Cuando termines, enséñame el contenido del archivo y no hagas nada más.
+
+```
+**Qué salió:**
+Claude me generó el archivo adversarial-reviewer.md dentro de la carpeta .claude/agents con el agente.
