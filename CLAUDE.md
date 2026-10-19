@@ -66,3 +66,11 @@ Request flow: `start/routes.ts` → controller → VineJS validator → Lucid mo
   - `.adonisjs/` holds generated controller indexes and the Tuyau client registry, created by hooks in `adonisrc.ts`. Routes reference controllers via `controllers.X` from `#generated/controllers`.
   - Local diffs in these files are usually only line endings (CRLF).
 - Schema changes always go in a new migration under `database/migrations/`. Never alter tables by hand or edit an existing migration.
+
+## Process rules
+
+1. Before touching code, create a new branch from the current branch with a descriptive name (for example `feat/login-frontend`). Never work directly on `main`, `harness-cmelon`, or `harness-completo`.
+2. When done, commit with the `/commit` skill and open the pull request with `gh pr create`.
+3. The pull request always targets the user's fork (`chrmelon/flowsync-ai4devs-202610-seniors-I`), never the course repo (`LIDR-academy-temp`), unless the user explicitly asks for it.
+4. After opening the pull request, run the `adversarial-reviewer` subagent on it.
+5. When finished, reply in the chat with only the pull request URL.

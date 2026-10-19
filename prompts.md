@@ -215,3 +215,25 @@ Cuando termines, enséñame .claude/settings.json y el script del hook, y no hag
 ```
 **Qué salió:**
 Generó el hook y el archivo settings.json
+
+
+## Prompt 11
+
+**Modelo:** Opus 5.5 Medium 
+**Herramienta:** Claude Code en VSCode
+**Repo:** flowsync-ai4devs-202610-seniors-I
+
+```
+Añade al final de CLAUDE.md una sección "Process rules" con estas reglas de proceso, en el mismo idioma que el resto del archivo:
+
+1. Antes de tocar código, crea una rama nueva desde la rama actual con un nombre descriptivo (por ejemplo feat/login-frontend). Nunca trabajes directamente en main, harness-cmelon ni harness-completo.
+2. Al terminar, haz el commit con la skill /commit y abre el pull request con `gh pr create`.
+3. El pull request va siempre contra mi fork (chrmelon/flowsync-ai4devs-202610-seniors-I), nunca contra el repo del curso (LIDR-academy-temp), salvo que yo lo pida expresamente.
+4. Después de abrir el pull request, lanza el subagente adversarial-reviewer sobre él.
+5. En el chat, al terminar, responde solo con la URL del pull request.
+
+No cambies nada más del archivo. Cuando termines, enséñame la sección añadida y no hagas nada más.
+
+```
+**Qué salió:**
+Se modificó el archivo Claude.md con las nuevas reglas de proceso.
